@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management App</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url("/9.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white"> Employee Management App</h1>
+        <hr>
+        <h2 style="color: white"> Add New Employee</h2>
+
+        <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+            <label>
+                <input type="text" th:field="*{firstName}"
+                       placeholder="Employee First Name" class="form-control mb-4 col-4" required autofocus="autofocus">
+            </label>
+
+            <label>
+                <input type="text" th:field="*{lastName}"
+                       placeholder="Employee Last Name" class="form-control mb-4 col-4" required autofocus="autofocus">
+            </label>
+
+            <label>
+                <input type="text" th:field="*{email}"
+                       placeholder="Employee Email" class="form-control mb-4 col-4" required autofocus="autofocus">
+            </label>
+
+            <button type="submit" class="btn btn-info col-2"> Save Employee </button>
+
+        </form>
+
+        <hr>
+
+        <a th:href="@{/}" style="color: white"> Back to Employee List</a>
+    </div>
+
+</body>
+</html>
